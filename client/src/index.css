@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  width: 100%;
+  height: 40%;
+  background-color: rgb(246, 104, 163);
+  color: white;
+}
+.nav-link.text-white:hover,
+.navbar-brand.text-white:hover {
+  color: black !important;
+}
+
+.webName {
+  font-family: "Yellowtail", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  color: rgb(215, 8, 118) !important;
+  letter-spacing: 3px;
+  font-size: 30px !important;
+}
+
+.ban1 {
+  width: 100%;
+  height: 60vh;
+  background-color: pink;
+  background: url("https://st5.depositphotos.com/22341038/76115/i/450/depositphotos_761151514-stock-photo-discounts-day-black-friday-attractive.jpg")
+    no-repeat center center/cover;
+  background-size: cover;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+/* ------scrolling text---------- */
+.scrolling-text {
+  width: 100%;
+  background-color: skyblue;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.scrolling-text strong {
+  display: inline-block;
+  font-size: 18px;
+  animation: scroll-left 6s linear infinite;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(80%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* ---------fashion--------- */
+.fashion {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 30px;
+}
+.fashion .link {
+  width: 300px;
+  height: 300px;
+  background-color: pink;
+}
+.fashion strong {
+  font-size: 20px;
+}
+.cardImg {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 10px;
+}
+.cardImg img {
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+.cardImg:hover img {
+  opacity: 1;
+}
+.cardImg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(39, 1, 30, 0.4);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 8px;
+}
+.cardImg .card-text {
+  z-index: 2;
+  position: relative;
+  color: white;
+}
+
+/* -----------admin Login---------- */
+.adminLogin {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(rgba(45, 1, 40, 0.8), rgba(88, 1, 86, 0.5)),
+    url("https://as2.ftcdn.net/v2/jpg/11/04/38/73/1000_F_1104387375_7DKoBqpKQoixnVH4lcMpYsr6EeaAdd6g.jpg")
+      no-repeat center center/cover;
+}
+.login-card {
+  background: rgba(52, 1, 67, 0.7);
+  border-radius: 10px;
+}
+
+h2 {
+  font-weight: bold;
+  color: #f7df1e;
+}
+
+.custom-input {
+  /* background: linear-gradient(
+    135deg,
+    rgba(255, 20, 147, 0.3),
+    rgba(87, 3, 85, 0.3)
+  ); */
+  color: white !important;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  padding: 10px 15px;
+  font-style: italic;
+  background: transparent !important;
+}
+
+.custom-input::placeholder {
+  color: white !important;
+  opacity: 0.5;
+}
+
+.custom-btn {
+  background-color: #80048e !important;
+  border: none !important;
+  font-size: 18px !important;
+  padding: 10px !important;
+  width: 100% !important;
+  transition: all 0.3s !important;
+}
+
+.custom-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* AdminLayout.css */
+.admin-home {
+  background: linear-gradient(to bottom right, #1c1c1d, #5d5e5e);
+  min-height: 100vh;
+}
+
+.left-navbar {
+  background: transparent !important;
+  border-right: 1px solid #7b7979;
+  border-top: 1px solid #535353;
+
+  vertical-align: top;
+  width: 25%;
+  padding: 0 !important;
+  text-align: center;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0 !important;
+}
+
+.menu-list li {
+  margin-bottom: 15px;
+}
+
+.menu-list li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-list li a:hover {
+  color: #ffc107;
+}
+
+.outlet-section {
+  width: 75%;
+}
+
+/* // AdminHeader.css */
+.admin-header {
+  background: transparent;
+
+  font-size: 18px;
+}
+#log:hover {
+  color: rgba(243, 5, 5, 0.863) !important;
+}
+
+/* -----------admin home -------------- */
+.admin-home-page {
+  min-height: 100vh;
+
+  background: transparent !important;
+}
+
+.admin-card {
+  background: transparent !important;
+  color: white;
+  padding: 30px;
+
+  /* max-width: 500px; */
+  border-radius: 20px;
+}
+
+.admin-icon {
+  color: #f7df1e;
+}
+
+.admin-welcome-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f7df1e;
+}
+.cardText {
+  color: rgb(244, 199, 116);
+}
+/* ----create Product---------- */
+#CreateProductbtn {
+  background: linear-gradient(to bottom right, #000000, #313232);
+}
+#CreateProductbtn:hover {
+  background: linear-gradient(to bottom right, #878484, #90cbcb);
+  color: black !important;
+}
+
+@media screen and (max-width: 450px) {
+  .adminLogin {
+    padding: 10px;
+  }
+  .LoginDiv {
+    padding: 15px;
+  }
+  .Detail input {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* -------------Display Product Page  */
+.display-cards-page {
+  background-color: #f9f9f9;
+  padding: 2rem 0;
+}
+
+.product-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.product-price {
+  color: #e63946;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.custom-btn {
+  background-color: #ff6b6b;
+  border: none;
+  border-radius: 20px;
+}
+
+.custom-btn:hover {
+  background-color: #ff3b3b;
+}
+
+/* ----------- Responsive Admin Login ---------- */
+@media screen and (max-width: 768px) {
+  .adminLogin {
+    padding: 20px;
+    justify-content: center;
+  }
+  .LoginDiv {
+    margin: 0;
+    padding: 20px;
+    width: 90%;
+    transform: none;
+    box-shadow: none;
+  }
+  #adminForm {
+    gap: 20px;
+  }
+  .Detail {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .Detail input {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+  }
+  .btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
