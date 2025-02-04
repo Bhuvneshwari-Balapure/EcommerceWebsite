@@ -1,7 +1,9 @@
+import SkinCareBanner1 from "../SkinCare/SkinCareBanner1";
+
 function SkinCare() {
   return (
     <>
-      <h2>Skin Care</h2>
+      <SkinCareBanner1 />
     </>
   );
 }

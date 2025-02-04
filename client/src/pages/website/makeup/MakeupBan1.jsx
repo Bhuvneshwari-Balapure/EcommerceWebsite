@@ -1,9 +1,9 @@
-import Fashion from "./Fashion";
+import MakeupProduct from "./MakeupProduct";
 
 function MakeUpBanner1() {
   return (
     <div>
-      <div className="ban1"></div>
+      <div className="MakeupBan1"></div>
       <div className="scrolling-text">
         <strong
           style={{
@@ -17,7 +17,7 @@ function MakeUpBanner1() {
       </div>
 
       {/* fashion page  is link here*/}
-      <Fashion />
+      <MakeupProduct />
     </div>
   );
 }

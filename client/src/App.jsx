@@ -12,6 +12,9 @@ import AdminHome from "./pages/admin/AdminHome";
 import CreateProduct from "./pages/admin/CreateProduct";
 import DisplayProduct from "./pages/admin/DisplayProduct";
 import EditProduct from "./pages/admin/EditProduct";
+import ProductDetail from "./pages/website/ProductDetail";
+import Login from "./pages/website/LoginSignup/Login";
+import SignUp from "./pages/website/LoginSignup/SignUp";
 function App() {
   return (
     <BrowserRouter>
@@ -19,13 +22,15 @@ function App() {
         {/* website Route */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Banner1 />} />
-
+          <Route path="login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="fashion/makeup" element={<Makeup />} />
           <Route path="fashion/skincare" element={<SkinCare />} />
           <Route path="fashion/haircare" element={<HairCare />} />
           <Route path="fashion/bath&body" element={<BathBody />} />
           <Route path="fashion/fragrance" element={<Fragrance />} />
           <Route path="porduct" element={<DisplayProduct />} />
+          <Route path="proDetail/:id" element={<ProductDetail />} />
         </Route>
 
         {/* Admin Route */}

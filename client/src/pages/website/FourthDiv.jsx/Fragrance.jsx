@@ -1,7 +1,9 @@
+import FragranceBanner1 from "../Fragrance/FragranceBanner1";
+
 function Fragrance() {
   return (
     <>
-      <h3>Fragrance</h3>
+      <FragranceBanner1 />
     </>
   );
 }

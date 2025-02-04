@@ -109,5 +109,14 @@ router.post(
 
 // Route for displaying products
 router.get("/DisplayProduct", ProductController.DisplayProduct);
+router.post("/ProductDetail", ProductController.ProductDetail);
+router.get("/DisplayMakeupProduct", ProductController.DisplayMakeupProduct);
+router.get("/DisplaySkinCareProduct", ProductController.DisplaySkinCareProduct);
+router.get("/DisplayHairCareProduct", ProductController.DisplayHairCareProduct);
+router.get("/DisplayBodyBathProduct", ProductController.DisplayBodyBathProduct);
+router.get(
+  "/DisplayFragranceProduct",
+  ProductController.DisplayFragranceProduct
+);
 
 module.exports = router;

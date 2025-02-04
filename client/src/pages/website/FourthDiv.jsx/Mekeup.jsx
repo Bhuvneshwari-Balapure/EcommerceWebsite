@@ -1,7 +1,9 @@
+import MakeUpBanner1 from "../makeup/MakeupBan1";
+
 function Mekeup() {
   return (
     <>
-      <h3>makeup</h3>
+      <MakeUpBanner1 />
     </>
   );
 }

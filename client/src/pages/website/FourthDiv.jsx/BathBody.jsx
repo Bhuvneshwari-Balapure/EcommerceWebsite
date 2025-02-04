@@ -1,7 +1,9 @@
+import BodyBathBanner1 from "../BodyBath/BodyBathBanner1";
+
 function BathBody() {
   return (
     <>
-      <h3>Bath and Body</h3>
+      <BodyBathBanner1 />
     </>
   );
 }

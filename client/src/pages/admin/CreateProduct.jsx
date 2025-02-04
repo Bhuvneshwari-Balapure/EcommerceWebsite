@@ -84,7 +84,7 @@ function CreateProduct() {
                   <option value="Makeup">Makeup</option>
                   <option value="SkinCare">Skin Care</option>
                   <option value="HairCare">Hair Care</option>
-                  <option value="Bath&Body">Bath & Body</option>
+                  <option value="BathBody">Bath & Body</option>
                   <option value="Fragrance">Fragrance</option>
                 </Form.Select>
               </Form.Group>

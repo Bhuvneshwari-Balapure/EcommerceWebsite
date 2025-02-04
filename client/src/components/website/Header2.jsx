@@ -1,19 +1,57 @@
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 //icon
 import { FaShoppingBag } from "react-icons/fa";
+// --------------
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header2() {
+  const [username, setUsername] = useState("");
+  const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+  const product = useSelector((state) => state.mycart.cart);
+  const productLength = product.length;
+
+  useEffect(() => {
+    // Check localStorage for user info
+    const storedUserName = localStorage.getItem("userName");
+    const storedUserEmail = localStorage.getItem("userEmail");
+
+    // If username and email exist in localStorage, set login state to true
+    if (storedUserName && storedUserEmail) {
+      setUsername(storedUserName);
+      setIsLogin(true);
+    } else {
+      setIsLogin(false); // If no user found, set login state to false
+    }
+  }, []);
+
+  const userLogout = () => {
+    // Clear the localStorage when the user logs out
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userId");
+
+    // Set login state to false
+    setIsLogin(false);
+    setUsername(""); // Clear username from state
+
+    // Redirect to home page or login page after logout
+    navigate("/");
+  };
+
   return (
     <>
       <div>
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand href="#" className="webName">
+            <Navbar.Brand href="/" className="webName">
               PINKY
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
@@ -59,9 +97,9 @@ function Header2() {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <NavDropdown title="Buauty Advice" id="navbarScrollingDropdown">
+                <NavDropdown title="Beauty Advice" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="#action3">
-                    Buauty Advice
+                    Beauty Advice
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
                     Another action
@@ -72,30 +110,63 @@ function Header2() {
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button
-                  style={{
-                    backgroundColor: "rgb(215, 8, 118)",
-                    border: "none",
-                  }}
-                >
-                  Signin
-                </Button>
-                <Nav.Link className="bag">
-                  <FaShoppingBag
-                    style={{
-                      color: "purple",
-                      margin: "0px 25px",
-                      fontSize: "30px",
-                    }}
-                  />
-                </Nav.Link>
+              <Form
+                className="d-flex"
+                id="logSign"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "12px",
+                }}
+              >
+                {isLogin ? (
+                  <>
+                    {/* Show welcome message and logout button when logged in */}
+                    <p>Welcome : {username}</p>
+                    <p onClick={userLogout}>Logout</p>
+                    <Nav.Link className="bag">
+                      <FaShoppingBag
+                        style={{
+                          color: "purple",
+                          margin: "0px 25px",
+                          fontSize: "30px",
+                        }}
+                      />
+                    </Nav.Link>
+                    <span
+                      style={{
+                        width: "35px",
+                        height: "35px",
+                        padding: "3px",
+                        fontSize: "25px",
+                        border: "none",
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "50%",
+                        backgroundColor: "purple",
+                        color: "white",
+                      }}
+                    >
+                      {productLength}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {/* Show Sign Up and Login links when logged out */}
+                    <p>
+                      <Nav.Link as={Link} to="/signup" className="login">
+                        Sign Up
+                      </Nav.Link>
+                    </p>
+                    <p>
+                      <Nav.Link as={Link} to="/login" className="login">
+                        Login
+                      </Nav.Link>
+                    </p>
+                  </>
+                )}
               </Form>
             </Navbar.Collapse>
           </Container>

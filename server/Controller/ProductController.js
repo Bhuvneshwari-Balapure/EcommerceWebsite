@@ -102,8 +102,50 @@ const DisplayProduct = async (req, res) => {
       .json({ message: "Failed to fetch products", error: error.message });
   }
 };
+const ProductDetail = async (req, res) => {
+  const product = await ProductModel.findById(req.body.id);
+  if (!product) return res.status(404).json({ message: "Product not found" });
+  res.status(200).send(product);
+};
+const DisplayMakeupProduct = async (req, res) => {
+  const { productCategory } = req.query;
+
+  const Data = await ProductModel.find({ productCategory: productCategory });
+  res.send({ Data });
+};
+
+const DisplaySkinCareProduct = async (req, res) => {
+  const { productCategory } = req.query;
+
+  const Data = await ProductModel.find({ productCategory: productCategory });
+  res.send({ Data });
+};
+const DisplayHairCareProduct = async (req, res) => {
+  const { productCategory } = req.query;
+
+  const Data = await ProductModel.find({ productCategory: productCategory });
+  res.send({ Data });
+};
+const DisplayBodyBathProduct = async (req, res) => {
+  const { productCategory } = req.query;
+
+  const Data = await ProductModel.find({ productCategory: productCategory });
+  res.send({ Data });
+};
+const DisplayFragranceProduct = async (req, res) => {
+  const { productCategory } = req.query;
+
+  const Data = await ProductModel.find({ productCategory: productCategory });
+  res.send({ Data });
+};
 
 module.exports = {
   CreateProduct,
   DisplayProduct,
+  ProductDetail,
+  DisplayMakeupProduct,
+  DisplaySkinCareProduct,
+  DisplayHairCareProduct,
+  DisplayBodyBathProduct,
+  DisplayFragranceProduct,
 };

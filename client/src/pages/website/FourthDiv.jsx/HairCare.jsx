@@ -1,7 +1,9 @@
+import HairCareBanner1 from "../HairCare/HairCareBanner1";
+
 function HairCare() {
   return (
     <>
-      <h3>Hair care</h3>
+      <HairCareBanner1 />
     </>
   );
 }
