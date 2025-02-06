@@ -10,7 +10,7 @@ function HairCareProduct() {
   const loadData = async () => {
     try {
       let api =
-        "http://localhost:8080/product/DisplayHairCareProduct?productCategory=HairCare";
+        "http://localhost:8080/product/DisplaySpecificProduct?productCategory=HairCare";
       const response = await axios.get(api);
       console.log(response.data);
 

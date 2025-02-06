@@ -53,11 +53,9 @@ const fs = require("fs");
 const router = express.Router();
 const ProductController = require("../Controller/ProductController");
 
-// Constants
 const IMAGES_DIR = "Images/";
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
-// Ensure the Images directory exists
 if (!fs.existsSync(IMAGES_DIR)) {
   fs.mkdirSync(IMAGES_DIR);
 }
@@ -110,13 +108,6 @@ router.post(
 // Route for displaying products
 router.get("/DisplayProduct", ProductController.DisplayProduct);
 router.post("/ProductDetail", ProductController.ProductDetail);
-router.get("/DisplayMakeupProduct", ProductController.DisplayMakeupProduct);
-router.get("/DisplaySkinCareProduct", ProductController.DisplaySkinCareProduct);
-router.get("/DisplayHairCareProduct", ProductController.DisplayHairCareProduct);
-router.get("/DisplayBodyBathProduct", ProductController.DisplayBodyBathProduct);
-router.get(
-  "/DisplayFragranceProduct",
-  ProductController.DisplayFragranceProduct
-);
+router.get("/DisplaySpecificProduct", ProductController.DisplaySpecificProduct);
 
 module.exports = router;

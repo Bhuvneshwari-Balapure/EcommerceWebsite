@@ -10,7 +10,7 @@ function SkinCareProduct() {
   const loadData = async () => {
     try {
       let api =
-        "http://localhost:8080/product/DisplaySkinCareProduct?productCategory=SkinCare";
+        "http://localhost:8080/product/DisplaySpecificProduct?productCategory=SkinCare";
       const response = await axios.get(api);
 
       if (response.data.Data && response.data.Data.length > 0) {

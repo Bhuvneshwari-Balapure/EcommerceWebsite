@@ -9,6 +9,7 @@ app.use(cors());
 const adminRoute = require("./Routes/adminRoute");
 const productRoute = require("./Routes/ProductRoute");
 const UserRoute = require("./Routes/UserRoute");
+const CartRoute = require("./Routes/cartRoute.js");
 // ------------------------
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -22,6 +23,7 @@ app.use("/admin", adminRoute);
 app.use("/product", productRoute);
 app.use("/Images", express.static("Images"));
 app.use("/users", UserRoute);
+app.use("/Cart", CartRoute);
 
 const port = process.env.PORT;
 app.listen(port, () => {

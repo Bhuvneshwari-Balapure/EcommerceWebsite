@@ -15,6 +15,7 @@ import EditProduct from "./pages/admin/EditProduct";
 import ProductDetail from "./pages/website/ProductDetail";
 import Login from "./pages/website/LoginSignup/Login";
 import SignUp from "./pages/website/LoginSignup/SignUp";
+import AddToCart from "./pages/website/AddToCart";
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
           <Route path="fashion/fragrance" element={<Fragrance />} />
           <Route path="porduct" element={<DisplayProduct />} />
           <Route path="proDetail/:id" element={<ProductDetail />} />
+          <Route path="AddToCart" element={<AddToCart />} />
         </Route>
 
         {/* Admin Route */}

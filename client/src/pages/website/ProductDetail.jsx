@@ -2,13 +2,16 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/cartSlice";
+import { message } from "antd"; // Correct import for message
+
 function ProductDetail() {
   const { id } = useParams();
   const [proData, setProData] = useState({});
   const [bigImage, setBigImage] = useState("");
-  const dispatch = useDispatch();
+  const [cartLength, setCartLength] = useState(0);
+  const userId = localStorage.getItem("userId");
+  console.log(userId);
+
   const loadData = async () => {
     try {
       let api = "http://localhost:8080/product/ProductDetail";
@@ -16,15 +19,52 @@ function ProductDetail() {
       setProData(response.data);
       setBigImage(response.data.defaultImage);
       console.log(response.data);
-      console.log("Default Image", response.data.defaultImage);
-      console.log("Image", response.data.productImg);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     loadData();
   }, []);
+
+  const addToCart = async (productId) => {
+    if (!userId) {
+      message.error("Please Login to Add products in cart");
+      return;
+    }
+
+    try {
+      // Fetch current cart to check if product exists
+      let GetApi = `http://localhost:8080/Cart/GetCart/${userId}`;
+      const response = await axios.get(GetApi);
+      const cartItems = response.data?.products || [];
+      const productExist = cartItems.some(
+        (item) => item.productId === productId
+      );
+
+      if (productExist) {
+        message.error("Product already exists in the cart.");
+      } else {
+        let api = "http://localhost:8080/Cart/AddToCart";
+        const addResponse = await axios.post(api, {
+          userId,
+          productId,
+        });
+        console.log("User Id : ", userId, "Product Id : ", productId);
+
+        console.log("Add To Cart Product:", addResponse.data.cart);
+        window.dispatchEvent(new CustomEvent("cartUpdated"));
+        setCartLength(addResponse.data.length);
+        message.success("Product added to cart successfully!");
+      }
+    } catch (error) {
+      console.error("Error adding product to cart:", error.response || error);
+      message.error(
+        error.response?.data?.error || "Failed to add product to cart."
+      );
+    }
+  };
 
   return (
     <>
@@ -39,7 +79,6 @@ function ProductDetail() {
                   src={`http://localhost:8080/${bigImage}`}
                   alt="Product"
                 />
-
                 <div className="Detail-thumbnail-container mt-3">
                   {proData?.productImg?.length > 0 ? (
                     proData.productImg.map((item, index) => (
@@ -79,19 +118,7 @@ function ProductDetail() {
                 <Button
                   variant="success"
                   className="px-4 py-2"
-                  onClick={() => {
-                    dispatch(
-                      addToCart({
-                        id: proData._id,
-                        name: proData.productName,
-                        category: proData.productCategory,
-                        price: proData.productPrice,
-                        description: proData.productDescription,
-                        image: proData.defaultImage,
-                        qnty: proData.productQuantity,
-                      })
-                    );
-                  }}
+                  onClick={() => addToCart(proData._id)}
                 >
                   🛒 Add to Cart
                 </Button>

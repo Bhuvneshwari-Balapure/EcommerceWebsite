@@ -10,7 +10,7 @@ function BodyBathProduct() {
   const loadData = async () => {
     try {
       let api =
-        "http://localhost:8080/product/DisplayBodyBathProduct?productCategory=BathBody";
+        "http://localhost:8080/product/DisplaySpecificProduct?productCategory=BathBody";
       const response = await axios.get(api);
       console.log(response.data);
       if (response.data.Data && response.data.Data.length > 0) {

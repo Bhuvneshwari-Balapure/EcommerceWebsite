@@ -10,7 +10,7 @@ function MakeupProduct() {
   const loadData = async () => {
     try {
       let api =
-        "http://localhost:8080/product/DisplayMakeupProduct?productCategory=Makeup";
+        "http://localhost:8080/product/DisplaySpecificProduct?productCategory=Makeup";
       const response = await axios.get(api);
 
       if (response.data.Data && response.data.Data.length > 0) {

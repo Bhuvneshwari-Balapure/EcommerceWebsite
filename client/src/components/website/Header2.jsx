@@ -9,24 +9,48 @@ import { FaShoppingBag } from "react-icons/fa";
 // --------------
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import axios from "axios";
 
 function Header2() {
   const [username, setUsername] = useState("");
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
-  const product = useSelector((state) => state.mycart.cart);
-  const productLength = product.length;
+  const [cartLength, setCartLength] = useState(0); // Replace productLength
+  // const product = useSelector((state) => state.mycart.cart);
+  // const productLength = product.length;
 
   useEffect(() => {
     // Check localStorage for user info
     const storedUserName = localStorage.getItem("userName");
     const storedUserEmail = localStorage.getItem("userEmail");
+    const storedUserId = localStorage.getItem("userId");
 
     // If username and email exist in localStorage, set login state to true
-    if (storedUserName && storedUserEmail) {
+    if (storedUserName && storedUserEmail && storedUserId) {
       setUsername(storedUserName);
       setIsLogin(true);
+
+      // edit in code --------------------
+      const fetchCartLength = () => {
+        axios
+          .get(`http://localhost:8080/Cart/cartLength/${storedUserId}`)
+          .then((response) => {
+            setCartLength(response.data.length);
+          })
+          .catch((error) => {
+            console.error("Error fetching cart length:", error);
+          });
+      };
+      fetchCartLength();
+      // Event Listener for cart update
+      window.addEventListener("cartUpdated", fetchCartLength);
+
+      return () => {
+        window.removeEventListener("cartUpdated", fetchCartLength);
+      };
+
+      // ----------------------
     } else {
       setIsLogin(false); // If no user found, set login state to false
     }
@@ -44,6 +68,9 @@ function Header2() {
 
     // Redirect to home page or login page after logout
     navigate("/");
+  };
+  const displayCart = () => {
+    navigate("/AddToCart");
   };
 
   return (
@@ -124,7 +151,7 @@ function Header2() {
                     {/* Show welcome message and logout button when logged in */}
                     <p>Welcome : {username}</p>
                     <p onClick={userLogout}>Logout</p>
-                    <Nav.Link className="bag">
+                    <Nav.Link className="bag" onClick={displayCart}>
                       <FaShoppingBag
                         style={{
                           color: "purple",
@@ -149,7 +176,7 @@ function Header2() {
                         color: "white",
                       }}
                     >
-                      {productLength}
+                      {cartLength}
                     </span>
                   </>
                 ) : (
