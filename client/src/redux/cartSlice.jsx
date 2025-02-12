@@ -1,47 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  cart2: [],
+};
 const cartSlice = createSlice({
-  name: "myCart",
-  initialState: {
-    cart: [],
-  },
+  name: "cart",
+  initialState: initialState,
+
   reducers: {
-    addToCart: (state, actions) => {
-      let Data = state.cart.filter((key) => key.id === actions.payload.id);
-
-      if (Data.length >= 1) {
-        alert("Product Already Added!..");
+    addToCart: (state, action) => {
+      const existingProduct = state.cart2.find(
+        (product) => product.id === action.payload._id
+      );
+      if (existingProduct) {
+        alert("Product already added to cart");
       } else {
-        state.cart.push(actions.payload);
+        state.cart2.push(action.payload);
       }
-    },
-    qntyIncrease: (state, actions) => {
-      for (var i = 0; i < state.cart.length; i++) {
-        if (state.cart[i].id == actions.payload.id) {
-          state.cart[i].qnty++;
-        }
-      }
-    },
-
-    qntyDecrease: (state, actions) => {
-      for (var i = 0; i < state.cart.length; i++) {
-        if (state.cart[i].id == actions.payload.id) {
-          if (state.cart[i].qnty <= 1) {
-            alert("Quantity not less than 1");
-          } else {
-            state.cart[i].qnty--;
-          }
-        }
-      }
-    },
-    itemRemove: (state, actions) => {
-      state.cart = state.cart.filter((key) => key.id != actions.payload.id);
     },
   },
 });
-export const {
-  addToCart,
-  qntyIncrease,
-  qntyDecrease,
-  itemRemove,
-} = cartSlice.actions;
+
+export const { addToCart } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -57,7 +57,7 @@ function HairCareProduct() {
                         />
                       </div>
                       <div className="offer-text">
-                        <p>{product.productDescription}</p>
+                        {/* <p>{product.productDescription}</p> */}
                         <p style={{ color: "blue", fontSize: "20px" }}>
                           <FaRupeeSign />
                           {product.productPrice}

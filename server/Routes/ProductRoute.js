@@ -13,11 +13,13 @@
 //     // where to save the uploaded file
 //     cb(null, "Images/"); //the null arguement indicates there's no error and Images = folder name where the file should be saved.
 //   },
+
 //   filename: (req, file, cb) => {
 //     //unique file name
 //     cb(null, `${Date.now()}-${file.originalname}`);
 //   },
 // });
+
 // // File filter for allowed extensions (optional)
 // const fileFilter = (req, file, cb) => {
 //   const allowedFileTypes = /jpeg|jpg|png|pdf/;

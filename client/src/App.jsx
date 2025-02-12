@@ -16,6 +16,7 @@ import ProductDetail from "./pages/website/ProductDetail";
 import Login from "./pages/website/LoginSignup/Login";
 import SignUp from "./pages/website/LoginSignup/SignUp";
 import AddToCart from "./pages/website/AddToCart";
+import CheckOut from "./pages/website/CheckOut";
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ function App() {
           <Route path="porduct" element={<DisplayProduct />} />
           <Route path="proDetail/:id" element={<ProductDetail />} />
           <Route path="AddToCart" element={<AddToCart />} />
+          <Route path="checkout" element={<CheckOut />} />
         </Route>
 
         {/* Admin Route */}

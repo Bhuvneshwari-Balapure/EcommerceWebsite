@@ -16,7 +16,7 @@ function Header2() {
   const [username, setUsername] = useState("");
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
-  const [cartLength, setCartLength] = useState(0); // Replace productLength
+  const [cartLength, setCartLength] = useState(0);
   // const product = useSelector((state) => state.mycart.cart);
   // const productLength = product.length;
 

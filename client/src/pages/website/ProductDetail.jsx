@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -8,11 +8,12 @@ function ProductDetail() {
   const { id } = useParams();
   const [proData, setProData] = useState({});
   const [bigImage, setBigImage] = useState("");
-  const [cartLength, setCartLength] = useState(0);
+  const [loading, setLoading] = useState(true);
   const userId = localStorage.getItem("userId");
   console.log(userId);
 
   const loadData = async () => {
+    setLoading(true);
     try {
       let api = "http://localhost:8080/product/ProductDetail";
       const response = await axios.post(api, { id: id });
@@ -21,12 +22,15 @@ function ProductDetail() {
       console.log(response.data);
     } catch (error) {
       console.log(error);
+      message.error("Failed to Load Product details.");
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [id]);
 
   const addToCart = async (productId) => {
     if (!userId) {
@@ -45,24 +49,36 @@ function ProductDetail() {
 
       if (productExist) {
         message.error("Product already exists in the cart.");
-      } else {
+        return;
+      }
+      // Add products to cart
+      else {
         let api = "http://localhost:8080/Cart/AddToCart";
         const addResponse = await axios.post(api, {
           userId,
           productId,
+          productName: proData.productName,
+          productPrice: proData.productPrice,
+          productImage: bigImage,
         });
         console.log("User Id : ", userId, "Product Id : ", productId);
-
         console.log("Add To Cart Product:", addResponse.data.cart);
-        window.dispatchEvent(new CustomEvent("cartUpdated"));
-        setCartLength(addResponse.data.length);
-        message.success("Product added to cart successfully!");
+        if (addResponse.status === 200) {
+          message.success(addResponse.data.msg);
+
+          // Dispatch custom event to notify cart update
+          const cartUpdatedEvent = new Event("cartUpdated");
+          window.dispatchEvent(cartUpdatedEvent);
+        }
       }
     } catch (error) {
-      console.error("Error adding product to cart:", error.response || error);
+      console.error("Error adding product to cart:", error);
       message.error(
         error.response?.data?.error || "Failed to add product to cart."
       );
+    }
+    if (loading) {
+      return <Spinner animation="border" />;
     }
   };
 

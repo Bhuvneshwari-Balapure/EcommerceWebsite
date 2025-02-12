@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
-
+import GooglePlay from "../../assets/images/GooglePlay.png";
+import appStore from "../../assets/images/appStore.png";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -16,8 +17,8 @@ const Footer = () => {
             <Col md={4} className="text-center">
               <h5>Experience the Nykaa Mobile App</h5>
               <div className="app-links">
-                <img src="google-play.png" alt="Google Play" />
-                <img src="app-store.png" alt="App Store" />
+                <img src={GooglePlay} alt="Google Play" />
+                <img src={appStore} alt="App Store" />
               </div>
             </Col>
             <Col md={4} className="text-right">
