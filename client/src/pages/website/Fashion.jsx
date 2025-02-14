@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 // Fashion page is link inside the Banner1 page at last
-import DisplayProduct from "../../pages/website/DisplayProduct";
+// import DisplayProduct from "../../pages/website/DisplayProduct";
 function Fashion() {
   return (
     <>
@@ -92,7 +92,7 @@ function Fashion() {
           </div>
         </Link>
       </div>
-      <DisplayProduct />
+      {/* <DisplayProduct /> */}
     </>
   );
 }

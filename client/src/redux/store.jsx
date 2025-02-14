@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-//cart
-import cartReducer from "./cartSlice";
+
 //payment
 import paymentReducer from "./cartSlice";
 import storage from "redux-persist/lib/storage";
@@ -12,11 +11,9 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, paymentReducer); // Renamed from persistStore to persistedReducer
-
+const persistedReducer = persistReducer(persistConfig, paymentReducer);
 const store = configureStore({
   reducer: {
-    cart: cartReducer,
     cartPayment: persistedReducer, // Use persistedReducer here
   },
 });

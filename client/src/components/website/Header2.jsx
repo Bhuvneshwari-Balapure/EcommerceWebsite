@@ -76,7 +76,7 @@ function Header2() {
   return (
     <>
       <div>
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary header2">
           <Container>
             <Navbar.Brand href="/" className="webName">
               PINKY

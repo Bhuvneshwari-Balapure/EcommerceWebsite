@@ -74,7 +74,7 @@ function AddToCart() {
 
   // ---------------------------Navigate to checkout page --------------------------
   const CheckOutPage = () => {
-    navigate(`/checkout`);
+    navigate(`/checkout`, { state: { BillAmount, cartData: Data } });
   };
 
   // ----------------------Display Products-----------------------

@@ -1,4 +1,4 @@
-import Fashion from "./Fashion";
+// import Fashion from "./Fashion";
 
 function Banner1() {
   return (
@@ -17,7 +17,7 @@ function Banner1() {
       </div>
 
       {/* fashion page  is link here*/}
-      <Fashion />
+      {/* <Fashion /> */}
     </div>
   );
 }
