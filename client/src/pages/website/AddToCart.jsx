@@ -143,7 +143,7 @@ function AddToCart() {
 
   return (
     <>
-      <div style={{ overflowY: "auto", margin: "20px 30px" }}>
+      <div style={{ overflowY: "auto", margin: "30px", marginTop: "12%" }}>
         <Table striped bordered hover style={{ padding: "10px" }}>
           <thead
             style={{

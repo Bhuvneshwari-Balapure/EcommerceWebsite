@@ -98,7 +98,11 @@ function CheckOut() {
   console.log("Total Bill After all Functions : ", totalAmount);
 
   return (
-    <Container className="my-5">
+    <Container
+      style={{
+        marginTop: "12%",
+      }}
+    >
       <Row className="justify-content-center">
         <Col md={8}>
           <Card>
