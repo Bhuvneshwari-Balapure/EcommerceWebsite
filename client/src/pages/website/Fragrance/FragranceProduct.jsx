@@ -10,7 +10,7 @@ function Fragranceproduct() {
   const loadData = async () => {
     try {
       let api =
-        "http://localhost:8080/product/DisplaySpecificProduct?productCategory=Fragrance";
+        "https://ecommercewebsite-2-snc8.onrender.com/product/DisplaySpecificProduct?productCategory=Fragrance";
       const response = await axios.get(api);
       console.log(response.data);
       if (response.data.Data && response.data.Data.length > 0) {
@@ -50,7 +50,7 @@ function Fragranceproduct() {
                       <div className="image-container">
                         <Card.Img
                           variant="top"
-                          src={`http://localhost:8080/${product.defaultImage}`}
+                          src={`https://ecommercewebsite-2-snc8.onrender.com/${product.defaultImage}`}
                           className="product-image"
                           alt={product.productName}
                         />

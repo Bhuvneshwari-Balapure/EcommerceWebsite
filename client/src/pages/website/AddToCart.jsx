@@ -12,7 +12,7 @@ function AddToCart() {
   const navigate = useNavigate();
   const loadData = async () => {
     try {
-      let api = `http://localhost:8080/Cart/DisplayCartData/${userId}`;
+      let api = `https://ecommercewebsite-2-snc8.onrender.com/Cart/DisplayCartData/${userId}`;
       let response = await axios.get(api);
       console.log("response from in frontend : ", response.data);
       if (response.data.length > 0) {
@@ -31,7 +31,7 @@ function AddToCart() {
   const removeItem = async (productId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/Cart/DeleteCartItem/${productId}`
+        `https://ecommercewebsite-2-snc8.onrender.com/Cart/DeleteCartItem/${productId}`
       );
       if (response.status === 200) {
         message.success(response.data.msg);
@@ -47,7 +47,7 @@ function AddToCart() {
   // -----------------increaseQuantity------------
   const increaseQuantity = async (productId) => {
     try {
-      let api = `http://localhost:8080/Cart/IncreaseQuantity/${productId}`;
+      let api = `https://ecommercewebsite-2-snc8.onrender.com/Cart/IncreaseQuantity/${productId}`;
       const response = await axios.put(api);
 
       loadData();
@@ -60,7 +60,7 @@ function AddToCart() {
   // -----------------decreaseQuantity------------
   const decreaseQuantity = async (productId) => {
     try {
-      let api = `http://localhost:8080/Cart/DecreaseQuantity/${productId}`;
+      let api = `https://ecommercewebsite-2-snc8.onrender.com/Cart/DecreaseQuantity/${productId}`;
       const response = await axios.put(api);
 
       loadData();
@@ -93,7 +93,7 @@ function AddToCart() {
           <td>{sno++}</td>
           <td>
             <img
-              src={`http://localhost:8080/${key.productImage}`}
+              src={`https://ecommercewebsite-2-snc8.onrender.com/${key.productImage}`}
               style={{ height: "60px" }}
               alt={key.productName}
             />

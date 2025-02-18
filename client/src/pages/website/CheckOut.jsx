@@ -20,6 +20,7 @@ function CheckOut() {
   const cartData = location.state?.cartData || [];
   // const cartData = useSelector((state) => state.cartPayment.cart2);
   console.log("Cart Data = ", cartData);
+  console.log(selectedImage);
 
   let totalAmount = location.state?.BillAmount || 0;
   let productDetails = "";
@@ -51,7 +52,8 @@ function CheckOut() {
   const handlePay = async () => {
     try {
       setSelectedImage(productImage);
-      const orderURL = "http://localhost:8080/api/payment/orders";
+      const orderURL =
+        "https://ecommercewebsite-2-snc8.onrender.com/api/payment/orders";
       const { data } = await axios.post(orderURL, {
         amount: totalAmount,
         // amount: product.price,
@@ -80,7 +82,8 @@ function CheckOut() {
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyURL = "https://localhost:8080/api/payment/verify";
+          const verifyURL =
+            "https://ecommercewebsite-2-snc8.onrender.com/api/payment/verify";
           await axios.post(verifyURL, response);
         } catch (error) {
           console.error(error);

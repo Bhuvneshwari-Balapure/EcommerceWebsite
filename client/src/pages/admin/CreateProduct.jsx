@@ -43,7 +43,8 @@ function CreateProduct() {
       }
       console.log("Form data being sent: ", input);
 
-      let api = "http://localhost:8080/product/createProduct";
+      let api =
+        "https://ecommercewebsite-2-snc8.onrender.com/product/createProduct";
       const response = await axios.post(api, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });

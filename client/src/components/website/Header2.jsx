@@ -34,7 +34,9 @@ function Header2() {
       // edit in code --------------------
       const fetchCartLength = () => {
         axios
-          .get(`http://localhost:8080/Cart/cartLength/${storedUserId}`)
+          .get(
+            `https://ecommercewebsite-2-snc8.onrender.com/Cart/cartLength/${storedUserId}`
+          )
           .then((response) => {
             setCartLength(response.data.length);
           })

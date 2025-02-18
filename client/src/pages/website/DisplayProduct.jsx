@@ -9,7 +9,8 @@ function DisplayProduct() {
   const navigate = useNavigate();
   const loadData = async () => {
     try {
-      let api = "http://localhost:8080/product/DisplayProduct";
+      let api =
+        "https://ecommercewebsite-2-snc8.onrender.com/product/DisplayProduct";
       const response = await axios.get(api);
 
       if (response.data.products && response.data.products.length > 0) {
@@ -49,7 +50,7 @@ function DisplayProduct() {
                     <div className="image-container">
                       <Card.Img
                         variant="top"
-                        src={`http://localhost:8080/${product.defaultImage}`}
+                        src={`https://ecommercewebsite-2-snc8.onrender.com/${product.defaultImage}`}
                         className="product-image"
                         alt={product.productName}
                       />

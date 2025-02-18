@@ -15,7 +15,8 @@ function ProductDetail() {
   const loadData = async () => {
     setLoading(true);
     try {
-      let api = "http://localhost:8080/product/ProductDetail";
+      let api =
+        "https://ecommercewebsite-2-snc8.onrender.com/product/ProductDetail";
       const response = await axios.post(api, { id: id });
       setProData(response.data);
       setBigImage(response.data.defaultImage);
@@ -40,7 +41,7 @@ function ProductDetail() {
 
     try {
       // Fetch current cart to check if product exists
-      let GetApi = `http://localhost:8080/Cart/GetCart/${userId}`;
+      let GetApi = `https://ecommercewebsite-2-snc8.onrender.com/Cart/GetCart/${userId}`;
       const response = await axios.get(GetApi);
       const cartItems = response.data?.products || [];
       const productExist = cartItems.some(
@@ -53,7 +54,7 @@ function ProductDetail() {
       }
       // Add products to cart
       else {
-        let api = "http://localhost:8080/Cart/AddToCart";
+        let api = "https://ecommercewebsite-2-snc8.onrender.com/Cart/AddToCart";
         const addResponse = await axios.post(api, {
           userId,
           productId,
@@ -92,7 +93,7 @@ function ProductDetail() {
                 <Card.Img
                   className="product-detail-image rounded expandable-image"
                   variant="top"
-                  src={`http://localhost:8080/${bigImage}`}
+                  src={`https://ecommercewebsite-2-snc8.onrender.com/${bigImage}`}
                   alt="Product"
                 />
                 <div className="Detail-thumbnail-container mt-3">
@@ -101,7 +102,7 @@ function ProductDetail() {
                       <img
                         className="product-detail-thumbnail rounded"
                         key={index}
-                        src={`http://localhost:8080/${item}`}
+                        src={`https://ecommercewebsite-2-snc8.onrender.com/${item}`}
                         alt="Thumbnail"
                         width="60"
                         height="60"

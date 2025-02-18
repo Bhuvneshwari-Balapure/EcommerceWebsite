@@ -16,7 +16,7 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let api = "http://localhost:8080/users/createUser";
+    let api = "https://ecommercewebsite-2-snc8.onrender.com/users/createUser";
     try {
       const response = await axios.post(api, input);
       console.log(response.data);

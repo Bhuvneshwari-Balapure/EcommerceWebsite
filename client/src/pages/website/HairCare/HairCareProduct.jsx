@@ -10,7 +10,7 @@ function HairCareProduct() {
   const loadData = async () => {
     try {
       let api =
-        "http://localhost:8080/product/DisplaySpecificProduct?productCategory=HairCare";
+        "https://ecommercewebsite-2-snc8.onrender.com/product/DisplaySpecificProduct?productCategory=HairCare";
       const response = await axios.get(api);
       console.log(response.data);
 
@@ -51,7 +51,7 @@ function HairCareProduct() {
                       <div className="image-container">
                         <Card.Img
                           variant="top"
-                          src={`http://localhost:8080/${product.defaultImage}`}
+                          src={`https://ecommercewebsite-2-snc8.onrender.com/${product.defaultImage}`}
                           className="product-image"
                           alt={product.productName}
                         />

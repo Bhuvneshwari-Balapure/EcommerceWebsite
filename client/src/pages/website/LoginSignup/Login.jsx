@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let api = "http://localhost:8080/users/LoginUser";
+      let api = "https://ecommercewebsite-2-snc8.onrender.com/users/LoginUser";
       const response = await axios.post(api, {
         userEmail: input.userEmail,
         userPass: input.userPass,

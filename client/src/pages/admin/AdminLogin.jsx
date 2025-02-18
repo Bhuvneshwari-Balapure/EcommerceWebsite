@@ -19,7 +19,8 @@ function AdminLogin() {
 
   const handleSubmit = async () => {
     try {
-      const api = "http://localhost:8080/admin/adminlogin";
+      const api =
+        "https://ecommercewebsite-2-snc8.onrender.com/admin/adminlogin";
       const response = await axios.post(api, input);
       if (response.status === 200) {
         message.success(response.data.msg);
