@@ -7,7 +7,9 @@ import HairCare from "./pages/website/FourthDiv.jsx/HairCare";
 import BathBody from "./pages/website/FourthDiv.jsx/BathBody";
 import Fragrance from "./pages/website/FourthDiv.jsx/Fragrance";
 import AdminLogin from "./pages/admin/AdminLogin";
-import AdminLayout from "./components/admin/adminLayout";
+
+import AdminLayout from "./components/admin/AdminLayout";
+
 import AdminHome from "./pages/admin/AdminHome";
 import CreateProduct from "./pages/admin/CreateProduct";
 import DisplayProduct from "./pages/admin/DisplayProduct";
