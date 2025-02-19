@@ -99,6 +99,7 @@ function CheckOut() {
 
   return (
     <Container
+      className="checkoutPage"
       style={{
         marginTop: "12%",
       }}

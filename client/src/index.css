@@ -871,6 +871,9 @@ h2 {
   #login-card {
     width: 100% !important;
   }
+  .checkoutPage {
+    margin-top: 45% !important;
+  }
   .loginSignup {
     width: 100% !important;
   }
