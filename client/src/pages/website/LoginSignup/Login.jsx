@@ -35,11 +35,14 @@ function Login() {
       message.error(error.response.data.msg);
     }
   };
+  const navi = () => {
+    navigate("/signup");
+  };
   return (
     <>
       <div id="Login">
         <div id="login-card">
-          <div style={{ width: "70%" }}>
+          <div className="loginSignup" style={{ width: "70%" }}>
             <h2>Welcome Back!</h2>
             <p>Please log in to continue</p>
             <form>
@@ -75,7 +78,7 @@ function Login() {
               <p>
                 <span className="txt">Do not have an account?</span>
 
-                <a href="/signup" className="signup-link-text">
+                <a onClick={navi} className="signup-link-text">
                   Sign up
                 </a>
               </p>

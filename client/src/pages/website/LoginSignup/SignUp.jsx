@@ -36,12 +36,15 @@ function SignUp() {
       console.log(error);
     }
   };
+  const navi = () => {
+    navigate("/login");
+  };
 
   return (
     <>
       <div id="Login">
         <div id="login-card">
-          <div style={{ width: "70%" }}>
+          <div className="loginSignup" style={{ width: "70%" }}>
             <h2>Create an Account</h2>
             <p>Sign up to get started</p>
             <form onSubmit={handleSubmit}>
@@ -107,7 +110,7 @@ function SignUp() {
             <div className="signup-link">
               <p>
                 <span className="txt"> Already have an account?</span>
-                <a href="/login" className="signup-link-text">
+                <a onClick={navi} className="signup-link-text">
                   Log in
                 </a>
               </p>
