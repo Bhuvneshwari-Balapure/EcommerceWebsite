@@ -864,7 +864,11 @@ h2 {
   }
 }
 /* Small screens (Phones) */
-@media (max-width: 576px) {
+@media (min-width: 320px) and (max-width: 576px) {
+  .header2 {
+    top: 80px !important;
+  }
+
   .fashion {
     flex-direction: column;
     align-items: center;
