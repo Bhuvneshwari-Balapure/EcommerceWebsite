@@ -125,8 +125,17 @@ function ProductDetail() {
                 ${proData.productPrice}
               </h3>
               <p className="text-muted">Category: {proData.productCategory}</p>
-              <p className="product-description">
-                {proData.productDescription}
+              <p
+                className="product-description"
+                style={{ textAlign: "justify" }}
+              >
+                <ul style={{ paddingLeft: "15px" }}>
+                  {proData.productDescription
+                    .split(".")
+                    .map((point, i) =>
+                      point.trim() ? <li key={i}>{point.trim()}.</li> : null
+                    )}
+                </ul>
               </p>
               <p>
                 Available Quantity: <strong>{proData.productQuantity}</strong>

@@ -114,9 +114,33 @@ const DisplaySpecificProduct = async (req, res) => {
   res.send({ Data });
 };
 
+const AdminDisplayProduct = async (req, res) => {
+  try {
+    const Data = await ProductModel.find();
+    res.status(200).send({ Data });
+    console.log("Backend Data : ", Data);
+  } catch (error) {
+    console.error("Error fetching products:", error); // Log the error for debugging
+    res
+      .status(500)
+      .json({ message: "Failed to fetch Data", error: error.message });
+  }
+};
+const DeleteProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await ProductModel.findByIdAndDelete(id);
+    res.status(200).send({ msg: "Product Deleted Successfully..." });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting product", error });
+  }
+};
+
 module.exports = {
   CreateProduct,
   DisplayProduct,
   ProductDetail,
   DisplaySpecificProduct,
+  AdminDisplayProduct,
+  DeleteProduct,
 };

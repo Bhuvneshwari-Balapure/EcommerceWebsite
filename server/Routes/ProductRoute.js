@@ -112,4 +112,8 @@ router.get("/DisplayProduct", ProductController.DisplayProduct);
 router.post("/ProductDetail", ProductController.ProductDetail);
 router.get("/DisplaySpecificProduct", ProductController.DisplaySpecificProduct);
 
+// Admin Page
+router.get("/AdminDisplayProduct", ProductController.AdminDisplayProduct);
+router.delete("/DeleteProduct/:id", ProductController.DeleteProduct);
+
 module.exports = router;

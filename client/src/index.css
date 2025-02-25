@@ -825,6 +825,43 @@ h2 {
   justify-content: space-around;
   padding: 0;
 }
+/* ------------------------------- Edit Prouducts------------------------- */
+.search {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px;
+}
+.sea {
+  padding: 0px !important;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 10px 10px purple;
+  border-radius: 20px;
+}
+.search input {
+  margin: 0px !important;
+  background: transparent !important;
+  border: 1px solid black;
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  /* box-shadow: 0px 1px 30px purple; */
+  border-right: none !important;
+  padding: 3px;
+}
+.search .SearchIcon {
+  margin: 0px !important;
+  border-left: none !important;
+  border: 1px solid black;
+  margin-top: 17px;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  padding: 3px;
+  /* box-shadow: 30px 10px 15px purple; */
+}
 
 /* ----------- Responsive Admin Login ---------- */
 @media screen and (max-width: 768px) {
