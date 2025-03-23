@@ -109,7 +109,7 @@ router.post(
 
 // Route for displaying products
 router.get("/DisplayProduct", ProductController.DisplayProduct);
-router.post("/ProductDetail", ProductController.ProductDetail);
+router.post("/ProductDetail/:id", ProductController.ProductDetail);
 router.get("/DisplaySpecificProduct", ProductController.DisplaySpecificProduct);
 
 // Admin Page

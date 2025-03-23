@@ -1,5 +1,5 @@
 // import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Container,
@@ -11,10 +11,21 @@ import {
   Table,
 } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function CheckOut() {
   const location = useLocation();
   const [mydata, setMydata] = useState({});
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (paymentSuccess) {
+  //     setTimeout(() => {
+  //       navigate("/");
+  //     }, 5000);
+  //   }
+  // }, [paymentSuccess, navigate]);
+
   // product image
   const [selectedImage, setSelectedImage] = useState(null);
   const cartData = location.state?.cartData || [];
@@ -78,13 +89,17 @@ function CheckOut() {
       currency: data.currency,
       name: mydata.name || "Guest", // Use the correct product name
       description: "Test",
-      image: productImage,
+      image: data.defaultImage,
       order_id: data.id,
       handler: async (response) => {
         try {
           const verifyURL =
             "https://ecommercewebsite-2-snc8.onrender.com/api/payment/verify";
           await axios.post(verifyURL, response);
+          console.log("Payment Verified Successfully!");
+          setPaymentSuccess(true);
+
+          console.log("Payment Status : ", paymentSuccess);
         } catch (error) {
           console.error(error);
         }
