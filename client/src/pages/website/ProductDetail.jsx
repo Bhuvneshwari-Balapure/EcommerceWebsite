@@ -179,11 +179,11 @@ function ProductDetail() {
   const loadData = async () => {
     setLoading(true);
     try {
-      const api =
-        "https://ecommercewebsite-2-snc8.onrender.com/product/ProductDetail"; // Ensure this URL is correct
+      const api = `https://ecommercewebsite-2-snc8.onrender.com/product/ProductDetail/${id}`; // Ensure this URL is correct
       console.log("API URL:", api); // Log the API URL for debugging
       const response = await axios.post(api, { id: id });
       setProData(response.data);
+      console.log(response.data);
       setBigImage(response.data.defaultImage);
       console.log(response.data);
     } catch (error) {
@@ -290,13 +290,7 @@ function ProductDetail() {
             </h3>
             <p className="text-muted">Category: {proData.productCategory}</p>
             <p className="product-description" style={{ textAlign: "justify" }}>
-              <ul style={{ paddingLeft: "15px" }}>
-                {proData.productDescription
-                  .split(".")
-                  .map((point, i) =>
-                    point.trim() ? <li key={i}>{point.trim()}.</li> : null
-                  )}
-              </ul>
+              {proData.productDescription}
             </p>
             <p>
               Available Quantity: <strong>{proData.productQuantity}</strong>

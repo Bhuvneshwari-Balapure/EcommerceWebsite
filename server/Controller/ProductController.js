@@ -107,6 +107,7 @@ const ProductDetail = async (req, res) => {
   if (!product) return res.status(404).json({ message: "Product not found" });
   res.status(200).send(product);
 };
+
 const DisplaySpecificProduct = async (req, res) => {
   const { productCategory } = req.query;
 
