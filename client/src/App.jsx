@@ -12,20 +12,32 @@ import AdminLayout from "./components/admin/AdminLayout";
 
 import AdminHome from "./pages/admin/AdminHome";
 import CreateProduct from "./pages/admin/CreateProduct";
-import DisplayProduct from "./pages/admin/DisplayProduct";
+import DisplayProduct from "./pages/website/IndexPageCards";
 import EditProduct from "./pages/admin/EditProduct";
 import ProductDetail from "./pages/website/ProductDetail";
 import Login from "./pages/website/LoginSignup/Login";
 import SignUp from "./pages/website/LoginSignup/SignUp";
 import AddToCart from "./pages/website/AddToCart";
 import CheckOut from "./pages/website/CheckOut";
+import Fashion from "./pages/website/Fashion";
+import IndexPageCards from "./pages/website/IndexPageCards";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* website Route */}
         <Route path="/" element={<Layout />}>
-          <Route index element={<Banner1 />} />
+          <Route
+            index
+            element={
+              <>
+                (
+                <Banner1 />
+                <Fashion />
+                <IndexPageCards />)
+              </>
+            }
+          />
           <Route path="login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="fashion/makeup" element={<Makeup />} />

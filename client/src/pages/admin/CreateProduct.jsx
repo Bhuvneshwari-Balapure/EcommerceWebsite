@@ -24,11 +24,11 @@ function CreateProduct() {
     try {
       const formData = new FormData();
       if (
-        !input.productName ||
-        !input.productCategory ||
+        !input.productName.trim() ||
+        !input.productCategory.trim() ||
         !input.productPrice ||
         !input.productQuantity ||
-        !input.productDescription
+        !input.productDescription.trim()
       ) {
         alert("Please fill all required fields");
         return;

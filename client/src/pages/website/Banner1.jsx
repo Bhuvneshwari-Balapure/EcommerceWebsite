@@ -1,5 +1,3 @@
-import Fashion from "./Fashion";
-
 function Banner1() {
   return (
     <div>
@@ -15,9 +13,6 @@ function Banner1() {
           50% OFF SALE, SALE IS LIVE!! FREE SHIPPING ON ALL ORDERS ABOVE ₹299
         </strong>
       </div>
-
-      {/* fashion page  is link here */}
-      <Fashion />
     </div>
   );
 }

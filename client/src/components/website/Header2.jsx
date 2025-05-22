@@ -48,6 +48,8 @@ function Header2() {
       // Event Listener for cart update
       window.addEventListener("cartUpdated", fetchCartLength);
 
+      // auto
+
       return () => {
         window.removeEventListener("cartUpdated", fetchCartLength);
       };
@@ -56,6 +58,43 @@ function Header2() {
     } else {
       setIsLogin(false); // If no user found, set login state to false
     }
+  }, []);
+
+  useEffect(() => {
+    let timeout;
+
+    const resetTimer = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        // Auto logout after 5 mins (300000 ms) of inactivity
+        alert("You have been logged out due to inactivity.");
+        userLogout(); // Call your logout function
+        localStorage.clear(); // Clear localStorage
+      }, 300000); // 5 minutes
+    };
+    const events = [
+      "mousemove",
+      "keydown",
+      "click",
+      "scroll",
+      "touchstart",
+      "touchmove",
+      "touchend",
+    ];
+
+    // Add event listeners
+    events.forEach((event) => {
+      window.addEventListener(event, resetTimer);
+    });
+    resetTimer();
+
+    // Start the timer when component mounts
+    return () => {
+      clearTimeout(timeout);
+      events.forEach((event) => {
+        window.removeEventListener(event, resetTimer);
+      });
+    };
   }, []);
 
   const userLogout = () => {
